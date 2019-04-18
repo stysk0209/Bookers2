@@ -13,3 +13,31 @@
  *= require_tree .
  *= require_self
  */
+
+/* --bootstrapファイルの読み込み-- */
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+/* nav-barのTOP固定のために必要 */
+body {
+	padding-top: 60px;
+}
+
+.header-title {
+	font-size: 20px;
+	padding-top: 10px;
+	color: white;
+}
+
+.field,
+.actions {
+	margin-bottom: 10px;
+}
+
+.submit {
+	margin-top : 10px;
+}
+
+.flash {
+	color: green;
+}

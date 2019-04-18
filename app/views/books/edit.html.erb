@@ -1,0 +1,31 @@
+<div class="container">
+	<div class="row">
+		<div class=" center-block">
+			<h1 class="col-xs-12">Editing Book</h1>
+
+			<%= form_for @book do |f| %>
+
+				<div>
+					<%= f.label :Title %>
+					<%= f.text_field :book_title, class: "field col-xs-12" %>
+				</div>
+
+				<div>
+				<%= f.label :Opinion %>
+				<%= f.text_area :book_body, class: "field col-xs-12" %>
+				</div>
+
+				<div>
+				<%= f.submit "Update Book", class: "actions btn btn-primary col-xs-12" %>
+				</div>
+
+			<% end %>
+
+			<div class="col-xs-12">
+				<%= link_to "Show", book_path(@book) %>
+				<span>|</span>
+				<%= link_to "Back", books_path %>
+			</div>
+		</div>
+	</div>
+</div>

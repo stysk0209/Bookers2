@@ -10,6 +10,10 @@ module Bookers2
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
+    #Refileの格納場所の変更
+    Refile.store ||=Refile::Backend::FileSystem.new("/tmp/uploads/store".to_s)
+    Refile.cache ||=Refile::Backend::FileSystem.new("/tmp/uploads/cache".to_s)
+
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
