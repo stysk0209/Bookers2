@@ -7,4 +7,10 @@ class User < ApplicationRecord
 has_many :books, dependent: :destroy
 attachment :image
 
+#バリデーション機能
+validates :name, presence: true
+validates :name, length: { in: 2..20 } #2文字以上、20文字以下
+validates :body, length: { maximum: 50 }#50文字以下
+
+
 end

@@ -20,7 +20,7 @@
 	      				<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
 	      			<% end %>
 	      		<% else %>
-	      			<%= link_to user_path(current_user), class: "btn btn-default btn-block edit_user_#{user.id}" do %>
+	      			<%= link_to user_path(current_user), class: "btn btn-default btn-block user_#{current_user.id}" do %>
 	      				<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
 	      			<% end %>
 	      		<% end %>
@@ -29,10 +29,10 @@
 			<%= form_for book do |f| %>
 
 			<%= f.label :title %><br />
-			<%= f.text_field :book_title, class: 'field col-xs-12' %>
+			<%= f.text_field :book_title, class: 'field col-xs-12 book_title' %>
 
 			<%= f.label :Opinion %><br />
-			<%= f.text_area :book_body, class: 'field col-xs-12' %>
+			<%= f.text_area :book_body, class: 'field col-xs-12 book_body' %>
 
 			<%= f.submit "Create Book", class: ' action submit col-xs-12 btn btn-primary' %>
 			<% end %>

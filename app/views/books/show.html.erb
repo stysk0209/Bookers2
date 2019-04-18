@@ -1,13 +1,13 @@
-<% if flash[:notice] %>
-      <div class="flash">
-        <%= flash[:notice] %>
-      </div>
-<% end %>
-
 <div class="container">
 	<div class="row">
 
-		<%= render 'layouts/sidebar', user: current_user, book: @book_new %>
+	  <% if flash[:notice] %>
+        <div class="flash">
+          <%= flash[:notice] %>
+        </div>
+      <% end %>
+
+		<%= render 'layouts/sidebar', user: @book.user, book: @book_new %>
 
 		<div class="col-xs-9">
 			<h2>Book detail</h2>
@@ -17,23 +17,26 @@
 				<tbody>
 					<tr>
 						<td>
-							<%= link_to user_path(@user) do %>
-								<%= attachment_image_tag @user, :image, :fill, 40, 40, fallback: "no_image.jpg", size: "40x40" %>
-								<p><%= @user.name %></p>
+							<%= link_to user_path(@book.user), class: "user_#{@book.user.id}" do %>
+								<%= attachment_image_tag @book.user, :image, :fill, 100, 100, fallback: "no_image.jpg" %>
+								<p><%= @book.user.name %></p>
 							<% end %>
 						</td>
 						<td>
-							<%= link_to @book.book_title, book_path(@book) %>
+							<%= link_to @book.book_title, book_path(@book), class: "book_#{@book.id}" %>
 						</td>
 						<td>
 							<%= @book.book_body %>
 						</td>
-						<td>
-							<%= link_to " Edit ", edit_book_path(@book),class: "btn btn-success btn-sm" %>
-						</td>
-						<td>
-							<%= link_to "Destroy", book_path(@book), method: :delete, class: "btn btn-danger btn-sm" %>
-						</td>
+						<% if @book.user == current_user %>
+							<td>
+								<%= link_to " Edit ", edit_book_path(@book),class: "btn btn-success btn-sm edit_book_#{@book.id}" %>
+							</td>
+							<td>
+								<%= link_to "Destroy", book_path(@book), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-danger btn-sm destroy_book_#{@book.id}" %>
+							</td>
+						<% end %>
+
 					</tr>
 				</tbody>
 			</table>

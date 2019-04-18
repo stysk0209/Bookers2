@@ -4,19 +4,21 @@
 
 		<%= form_for @user do |f| %>
 
+		<%= render "devise/shared/error_messages", resource: @user %>
+
 		<div class="field">
 			<%= f.label :name %>
-			<%= f.text_field :name %>
+			<%= f.text_field :name, class: "name" %>
 		</div>
 
 		<div class="field">
 			<%= f.label :image %>
-			<%= f.attachment_field :image %>
+			<%= f.attachment_field :image, class: "user_image" %>
 		</div>
 
 		<div class="field">
 			<%= f.label :introduction %>
-			<%= f.text_area :body %>
+			<%= f.text_area :body, class:"introduction" %>
 		</div>
 
 		<%= f.submit "Update User" %>

@@ -20,14 +20,14 @@
          <% if user_signed_in? %>
 
            <li>
-             <%= link_to user_path(current_user.id), class: "Home" do  %>
+             <%= link_to user_path(current_user.id), class: "user_#{current_user.id}" do  %>
                <i class="glyphicon glyphicon-home"></i>
                <span>&ensp;Home</span>
              <% end %>
            </li>
 
            <li>
-            <%= link_to users_path, class:"user" do %>
+            <%= link_to users_path, class:"users" do %>
             <i class="glyphicon glyphicon-user"></i>
             <span>&ensp;Users</span>
             <% end %>
@@ -41,7 +41,7 @@
            </li>
 
            <li>
-            <%= link_to destroy_user_session_path, method: :delete, class:"destroy" do %>
+            <%= link_to destroy_user_session_path, method: :delete, class:"logout" do %>
             <i class="glyphicon glyphicon-log-out">&ensp;logout</i>
             <% end %>
            </li>
@@ -55,18 +55,18 @@
             </li>
             <li>
               <%= link_to books_about_path, class: "about" do %>
-                <i class="glyphicon glyphicon-link about">&ensp;About</i>
+                <i class="glyphicon glyphicon-link">&ensp;About</i>
               <% end %>
            </li>
 
             <li>
               <%= link_to new_user_registration_path, class: "sign_up" do %>
-               <i class="glyphicon glyphicon-edit sign_up">&ensp;sign up</i>
+               <i class="glyphicon glyphicon-edit">&ensp;sign up</i>
               <% end %>
             </li>
             <li>
-              <%= link_to new_user_session_path, class: "login" do %>
-                <i class="glyphicon glyphicon-log-in sign_in">&ensp;login</i>
+              <%= link_to new_user_session_path, class: "sign_in" do %>
+                <i class="glyphicon glyphicon-log-in">&ensp;login</i>
               <% end %>
             </li>
          <% end %>
