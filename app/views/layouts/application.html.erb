@@ -20,7 +20,7 @@
          <% if user_signed_in? %>
 
            <li>
-             <%= link_to user_path(current_user.id), class: "user_#{current_user.id}" do  %>
+             <%= link_to user_path(current_user.id), class: "home" do  %>
                <i class="glyphicon glyphicon-home"></i>
                <span>&ensp;Home</span>
              <% end %>
